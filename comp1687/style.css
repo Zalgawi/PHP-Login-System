@@ -1,0 +1,24 @@
+/*.captchaimage {
+
+border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+
+}*/
+
+.captcha {
+
+border: 3px solid #ddd;
+    border-radius: 6px;
+    padding: 5px;
+    width: 150px;
+
+}
+
+.reglogtitles {
+
+	text-align:center;
+}
+
+
