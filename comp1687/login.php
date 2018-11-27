@@ -37,7 +37,7 @@
 				        </div>
 				    </div>
 				    <div class="uk-margin">
-				        <button class="uk-button uk-button-default" type="submit"><b>LOGIN</b></button>
+				        <center><button class="uk-button uk-button-default" type="submit"><b>LOGIN</b></button></center>
 				    </div>
 			  	
 			  	</form>

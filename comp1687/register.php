@@ -60,11 +60,14 @@
 				        <div class="uk-form-controls">
 				        	<div class="captcha"><div class="captchaimage"><img src="comp1687/captcha.php" alt="CAPTCHA image"/></div></div>
 				        	<br>
-				            <input class="uk-input" id="form-stacked-text" type="Password" required='required' placeholder="Enter captcha">
+				            <input class="uk-input" id="form-stacked-text" type="text" required='required' placeholder="Enter captcha">
 				        </div>
 				    </div>
+
+					<div class="uk-margin uk-alert-danger js-error" style='display: none;'></div>
+
 				    <div class="uk-margin">
-				        <button class="uk-button uk-button-default" type="submit"><b>REGISTER</b></button>
+				        <center><button class="uk-button uk-button-default" type="submit"><b>REGISTER</b></button></center>
 				    </div>
 			  	
 			  	</form>
