@@ -3,6 +3,8 @@
 	define('__CONFIG__', true);
 	//require the config
  	require_once "inc/config.php"; 
+
+ 	Page::ForceDashboard();
  ?>
 
 <!DOCTYPE html>
@@ -28,31 +30,31 @@
 					<div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Username:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" id="form-stacked-text" type="text" required='required' placeholder="Insert Username">
+				            <input class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Insert Username">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Email:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" id="form-stacked-text" type="email" required='required' placeholder="Insert Email">
+				            <input class="uk-input" name="form-stacked-text" type="email" required='required' placeholder="Insert Email">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Skills:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" id="form-stacked-text" type="text" required='required' placeholder="Skills e.g., plumbing, programming, teaching, etc.">
+				            <input class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Skills e.g., plumbing, programming, teaching, etc.">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Password:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" id="form-stacked-text" type="Password" required='required' placeholder="Insert Password">
+				            <input class="uk-input" name="form-stacked-text" type="Password" required='required' placeholder="Insert Password">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Confirm Password:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" id="form-stacked-text" type="Password" required='required' placeholder="Confirm Password">
+				            <input class="uk-input" name="form-stacked-text" type="Password" required='required' placeholder="Confirm Password">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
@@ -60,7 +62,7 @@
 				        <div class="uk-form-controls">
 				        	<div class="captcha"><div class="captchaimage"><img src="comp1687/captcha.php" alt="CAPTCHA image"/></div></div>
 				        	<br>
-				            <input class="uk-input" id="form-stacked-text" type="text" required='required' placeholder="Enter captcha">
+				            <input class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Enter captcha">
 				        </div>
 				    </div>
 

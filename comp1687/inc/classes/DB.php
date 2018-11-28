@@ -11,14 +11,18 @@ class DB {
 
 	private function __construct(){
 		try {
-			//self::$con = new PDO( '127.0.0.1', 'root', '', 'mdb_za1180x');
+
 			self::$con = new PDO( 'mysql:charset=latin1;host=localhost;port=3306;dbname=mdb_za1180x', 'root', '');
 			self::$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-			self::$con->setAttribute( PDO::ATTR_PERSISTENT, false );		
+			self::$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+			self::$con->setAttribute( PDO::ATTR_PERSISTENT, false );
+			self::$con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
 		} catch (PDOException $e) {
 			echo "Could not connect todatabase."; exit;
 		}
 	}
+
 
 	public static function getConnection() {
 		//If this instance has not been started, start it.
