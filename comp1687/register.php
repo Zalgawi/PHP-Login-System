@@ -30,7 +30,7 @@
 					<div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Username:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Insert Username">
+				            <input id="username" class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Insert Username">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
@@ -42,7 +42,7 @@
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Skills:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Skills e.g., plumbing, programming, teaching, etc.">
+				            <input id="skills" class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Skills e.g., plumbing, programming, teaching, etc.">
 				        </div>
 				    </div>
 				    <div class="uk-margin">

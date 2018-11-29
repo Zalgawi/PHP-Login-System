@@ -10,7 +10,7 @@ class User {
 
 	private $con;
 
-	public $id;
+	public $user_id;
 	public $username;
 	public $email;
 	public $skills;
@@ -20,21 +20,21 @@ class User {
 
 		$user_id = Filter::Int( $user_id );
 
-		$user = $this->con->prepare("SELECT id, username, email, skills FROM users WHERE id = :id LIMIT 1");
-		$user->bindParam(':id', $id, PDO::PARAM_INT);
+		$user = $this->con->prepare("SELECT user_id, username, email, skills FROM users WHERE user_id = :user_id LIMIT 1");
+		$user->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 		$user->execute();
 
 		if($user->rowCount() == 1) {
 			$user = $user->fetch(PDO::FETCH_OBJ);
 			
-			$this->id 		= (int) $user->id;
+			$this->user_id 		= (int) $user->user_id;
 			$this->username  = (string) $user->username;
 			$this->email 		= (string) $user->email;
 			$this->skills  = (string) $user->skills;
 		} else {
 			// No user.
 			// Redirect to to logout.
-			header("Location: /logout.php"); exit;
+			header("Location: /comp1687/logout.php"); exit;
 		}
 	}
 
@@ -50,16 +50,18 @@ class User {
 	}
 
 
-	public static function Find($email, $return_assoc = false) {
+	public static function Find($email, $username,  $return_assoc = false) {
 
 		$con = DB::getConnection();
 
 		// Make sure the user does not exist. 
 		$email = (string) Filter::String( $email );
 
-		$findUser = $con->prepare("SELECT id, password FROM users WHERE email = LOWER(:email) LIMIT 1");
+		$findUser = $con->prepare("SELECT user_id, password FROM users WHERE email = (:email) AND username = (:username)  LIMIT 1");
 		$findUser->bindParam(':email', $email, PDO::PARAM_STR);
-		$findUser->execute();
+        $findUser->bindParam(':username', $username, PDO::PARAM_STR);
+
+        $findUser->execute();
 
 
 		if($return_assoc) {

@@ -13,8 +13,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$return = [];
 
 	$email = Filter::String( $_POST['email'] );
+    $username = Filter::String($_POST['username']);
+    $skills = Filter::String($_POST['skills']);
+	$user_found = User::Find($email, $username);
+	$activationCode = DB::generateCode();
+	$credit = 0;
+    mysqli_report(MYSQLI_REPORT_ALL);
 
-	$user_found = User::Find($email);
+	$string = "";
 
 	// make sure the user does not exist.
 	if($user_found) {
@@ -26,9 +32,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// User does not exist, add them now. 
 			$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				// make sure the user CAN be added AND is added.
-			$addUser = $con->prepare("INSERT INTO users(username, email, skills, password) VALUES(LOWER(:username,) :email, :password, :skills, ");
+			$addUser = $con->prepare("INSERT INTO users(username, email, skills, password, credit, activationCode) VALUES(:username, :email, :skills, :password, :credit, :activationCode)");
 			$addUser->bindParam(':username', $username, PDO::PARAM_STR);
-			$addUser->bindParam(':email', $email, PDO::PARAM_STR);
+            $addUser->bindParam(':credit', $credit, PDO::PARAM_STR);
+            $addUser->bindParam(':activationCode', $activationCode, PDO::PARAM_STR);
+
+            $addUser->bindParam(':email', $email, PDO::PARAM_STR);
 			$addUser->bindParam(':skills', $skills, PDO::PARAM_STR);
 			$addUser->bindParam(':password', $password, PDO::PARAM_STR);
 			$addUser->execute();
@@ -37,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			$_SESSION['user_id'] = (int) $user_id;
 
-			$return['redirect'] = '/dashboard.php?message=welcome';
+			$return['redirect'] = 'comp1687/dashboard.php?message=welcome';
 			$return['is_logged_in'] = true;
 		}
 

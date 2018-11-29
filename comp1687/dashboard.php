@@ -25,8 +25,12 @@
 
   	<div class="uk-section uk-container">
   		<h2>Dashboard</h2>
-      <p>Hello <?php echo $User->email; ?>, you registered at <?php echo $User->reg_time; ?></p>
-      <p><a href="/logout.php">Logout</a></p>
+      <p>Hello <?php echo $User->username; ?>,
+          <br>
+         Your skills are <?php echo $User->skills; ?>.
+          <br>
+         Your time-banking credit is: <?php echo $User->credit; ?> credits.</p>
+      <p><a href="/comp1687/logout.php">Logout</a></p>
       <p>Ideas for extending this system:</p>
       <ul>
         <li>NEW FEEDS</li>

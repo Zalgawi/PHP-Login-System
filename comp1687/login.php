@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- UIkit CSS -->
+	<!-- UIKit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/css/uikit.min.css" />
 
 	<title>Login Page</title>

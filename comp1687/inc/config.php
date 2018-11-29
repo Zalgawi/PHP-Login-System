@@ -21,7 +21,7 @@
 	include_once "classes/Filter.php";
 	include_once "classes/Page.php";
 	include_once "classes/User.php";
-	include_once "functions.php";
+	include_once "classes/functions.php";
 
 	$con = DB::getConnection();
 

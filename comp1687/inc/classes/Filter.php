@@ -29,6 +29,10 @@ class Filter {
 	public static function Email( $email ) {
 		return filter_var( $email , FILTER_SANITIZE_EMAIL);
 	}
+
+	public static function Username( $username ) {
+	    return filter_var( $username, FILTER_sanitize_string);
+    }
 	
 	/**
 	 *  @param	string	$url		String to filter before putting inside InnoDB

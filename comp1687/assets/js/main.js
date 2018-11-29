@@ -8,6 +8,8 @@ $(document)
 	var dataObj = {
 		email: $("input[type='email']", _form).val(),
 		password: $("input[type='password']", _form).val(),
+		username: $("input[id='username']", _form).val(),
+		skills: $("input[id='skills']", _form).val()
 	};
 
 	if(dataObj.email.length < 6) {
@@ -23,12 +25,12 @@ $(document)
 
 	}
 
-	// Asumming the code gets this far, we can start the ajax proccess
+	// Assuming the code gets this far, we can start the ajax process
 	_error.hide();
-
+ 
 	$.ajax({
 		type: 'POST',
-		url: '/ajax/register.php',
+		url: 'comp1687/ajax/register.php',
 		data: dataObj,
 		dataType: 'json',
 		async: true,
@@ -74,9 +76,9 @@ $(document)
 			.text("Please enter a valid email address")
 			.show();
 		return false;
-	} else if (dataObj.password.length < 11) {
+	} else if (dataObj.password.length < 8) {
 		_error
-			.text("Please enter a passphrase that is at least 11 characters long.")
+			.text("Please enter a password that is at least 8 characters long.")
 			.show();
 		return false;
 	}
@@ -86,7 +88,7 @@ $(document)
 
 	$.ajax({
 		type: 'POST',
-		url: '/ajax/login.php',
+		url: 'comp1687/ajax/login.php',
 		data: dataObj,
 		dataType: 'json',
 		async: true,
