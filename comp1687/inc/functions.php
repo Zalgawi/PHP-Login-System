@@ -1,0 +1,37 @@
+<?php
+
+function generateCode(){
+    $charArray = array('a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','T','U','V','W','X','Y','Z','2','3','4','6','7','8','9');
+    shuffle($charArray);
+//$activationCodeString is the variable name
+    $activationCode = $charArray[0];
+    for ($i=1; $i<5; $i++) $activationCode .= ' ' . $charArray[$i];
+    $activationCode = str_replace(' ','',$activationCode );
+    $_SESSION['activationCode'] = $activationCode;
+return $activationCode;}
+
+function sendMail($email, $username, $activationCode)
+{
+//This will email the user their activation code which should be applied in activate.php
+    include_once "PHPMailer\PHPMailer.php";
+    $mail = new PHPMailer(true);
+//mail recipients
+    $mail->setFrom('za1180x@greenwich.ac.uk');
+    $mail->addAdress($email, $username);
+    $mail->Subject = "Account activation code";
+    $mail->isHTML(true);
+    $mail->Body = "  Hello $username,
+                 <br>
+                 Your activation code is:
+                 <br>
+                 <b>'$activationCode'</b>
+                 <br>
+                 Please insert the 5 character activation code to become a full member.
+                 <br>
+                 Thank you for registering with us! :)";
+    ($mail->send());
+}
+
+?>
+
+

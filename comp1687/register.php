@@ -2,10 +2,23 @@
 	//allow the config
 	define('__CONFIG__', true);
 	//require the config
- 	require_once "inc/config.php"; 
+ 	require_once "inc/config.php";
+
 
  	Page::ForceDashboard();
  ?>
+
+<?php
+//This is importing a mailing code that is downloaded from a public library.
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+
+
+
+?>
 
 <!DOCTYPE html>
 <html>

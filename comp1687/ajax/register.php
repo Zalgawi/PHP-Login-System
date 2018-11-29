@@ -46,6 +46,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			$_SESSION['user_id'] = (int) $user_id;
 
+			sendMail ($email, $username, $activationCode);
+
 			$return['redirect'] = 'comp1687/dashboard.php?message=welcome';
 			$return['is_logged_in'] = true;
 		}

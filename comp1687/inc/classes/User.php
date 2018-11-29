@@ -14,13 +14,14 @@ class User {
 	public $username;
 	public $email;
 	public $skills;
+	public $credit;
 
 	public function __construct(int $user_id) {
 		$this->con = DB::getConnection();
 
 		$user_id = Filter::Int( $user_id );
 
-		$user = $this->con->prepare("SELECT user_id, username, email, skills FROM users WHERE user_id = :user_id LIMIT 1");
+		$user = $this->con->prepare("SELECT user_id, username, email, skills, credit FROM users WHERE user_id = :user_id LIMIT 1");
 		$user->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 		$user->execute();
 
@@ -31,6 +32,7 @@ class User {
 			$this->username  = (string) $user->username;
 			$this->email 		= (string) $user->email;
 			$this->skills  = (string) $user->skills;
+			$this->credit = (int) $user->credit;
 		} else {
 			// No user.
 			// Redirect to to logout.
@@ -48,6 +50,8 @@ class User {
 		
 		// $this->con->prepare("...")		
 	}
+
+
 
 
 	public static function Find($email, $username,  $return_assoc = false) {
