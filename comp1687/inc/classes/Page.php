@@ -13,14 +13,14 @@ class Page {
 			// The user is allowed here  
 		} else {
 			// The user is not allowed here. 
-			header("Location: /comp1687/login.php"); exit;
+			header("Location: /comp1687/login.php"); exit; //possibly have to change the location
 		}
 	}
 
 	static function ForceDashboard() {
 		if(isset($_SESSION['user_id'])) {
 			// The user is allowed here but redirect anyway 
-			header("Location: /comp1687/dashboard.php"); exit;
+			header("Location: /comp1687/dashboard.php"); exit; //possibly have to change the location
 		} else {
 			// The user is not allowed here. 
 		}

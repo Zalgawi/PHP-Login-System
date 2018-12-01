@@ -7,13 +7,26 @@ border: 1px solid #ddd;
 
 }*/
 
-.captcha {
+/*.g-recaptcha {*/
 
-border: 3px solid #ddd;
-    border-radius: 6px;
-    padding: 5px;
-    width: 150px;
+    /*border: 3px solid #ddd;*/
+    /*border-radius: 6px;*/
+    /*padding: 5px;*/
+    /*width: 150px;*/
 
+/*}*/
+
+/*.captcha {*/
+
+/*border: 3px solid #ddd;*/
+    /*border-radius: 6px;*/
+    /*padding: 5px;*/
+    /*width: 150px;*/
+
+/*}*/
+
+#registerbtn {
+    cursor: not-allowed;
 }
 
 

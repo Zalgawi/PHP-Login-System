@@ -2,7 +2,7 @@
 	//allow the config
 	define('__CONFIG__', true);
 	//require the config
- 	require_once "inc/config.php"; 
+ 	require_once "inc/config.php";  //possibly have to change the location
  ?>
 
 <!DOCTYPE html>
@@ -37,13 +37,14 @@
 				        </div>
 				    </div>
 				    <div class="uk-margin">
+                        <label><center>Don't have an account? <a href='comp1687/register.php'>Create one now!</a></center></label>
 				        <center><button class="uk-button uk-button-default" type="submit"><b>LOGIN</b></button></center>
 				    </div>
 			  	
 			  	</form>
 </div>
 
-<?php require_once "inc/footer.php"; ?>
+<?php require_once "inc/footer.php"; ?> <!-- possibly have to change the location  -->
 
 
 </body>

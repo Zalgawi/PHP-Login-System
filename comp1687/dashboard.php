@@ -3,7 +3,7 @@
 	// Allow the config
 	define('__CONFIG__', true);
 	// Require the config
-	require_once "inc/config.php"; 
+	require_once "inc/config.php";  //possibly have to change the location
 
 	Page::ForceLogin();
 
@@ -30,8 +30,8 @@
          Your skills are <?php echo $User->skills; ?>.
           <br>
          Your time-banking credit is: <?php echo $User->credit; ?> credits.</p>
-      <p><a href="/comp1687/logout.php">Logout</a></p>
-      <p>Ideas for extending this system:</p>
+      <p><a href="/comp1687/logout.php">Logout</a></p> <!--possibly have to change the location -->
+        <p>Ideas for extending this system:</p>
       <ul>
         <li>NEW FEEDS</li>
         <li>FRIEND FEED</li>
@@ -47,6 +47,6 @@
       <p>Pick one of these and build it yourself. It'll be fun! Don't forget to ask questions in our group: <a href="https://www.facebook.com/groups/1088943884540928/">https://www.facebook.com/groups/1088943884540928/</a></p>
   	</div>
 
-  	<?php require_once "inc/footer.php"; ?> 
+  	<?php require_once "inc/footer.php"; ?>
   </body>
 </html>

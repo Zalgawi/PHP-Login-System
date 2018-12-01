@@ -2,7 +2,7 @@
 	//allow the config
 	define('__CONFIG__', true);
 	//require the config
- 	require_once "inc/config.php"; 
+ 	require_once "inc/config.php";  //possibly have to change the location
  ?>
 
 <!DOCTYPE html>
@@ -31,8 +31,8 @@
             <?php echo "Hello world. Today is:";
             echo date(" Y-m-d"); ?>
             <p>
-                <a href="comp1687/login.php">Login</a>
-                <a href="comp1687/Register.php">Register</a>
+                <a href="comp1687/login.php">Login</a> <!--possibly have to change the location -->
+                <a href="comp1687/Register.php">Register</a> <!--possibly have to change the location -->
             </p>
         </div>
 
@@ -41,7 +41,7 @@
     </form>
 </div>
 
-<?php require_once "inc/footer.php"; ?>
+<?php require_once "inc/footer.php"; ?> <!--//possibly have to change the location -->
 
 
 </body>

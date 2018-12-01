@@ -1,6 +1,6 @@
 <?php
 	//allow the config
-	define('__CONFIG__', true);
+    	define('__CONFIG__', true);
 	//require the config
  	require_once "inc/config.php";
 
@@ -8,17 +8,7 @@
  	Page::ForceDashboard();
  ?>
 
-<?php
-//This is importing a mailing code that is downloaded from a public library.
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
 
-
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -27,9 +17,10 @@ require 'PHPMailer/SMTP.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/css/uikit.min.css" />
 <link rel="stylesheet" href="style.css">
 
+
 	<title>Registration Page</title>
 	<base href="/"/>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 							
@@ -71,25 +62,29 @@ require 'PHPMailer/SMTP.php';
 				        </div>
 				    </div>
 				    <div class="uk-margin">
-				        <label class="uk-form-label" for="form-stacked-text"><b>Enter Captcha:</b></label>
+<!--				        <label class="uk-form-label" for="form-stacked-text"><b>Enter Captcha:</b></label>-->
 				        <div class="uk-form-controls">
-				        	<div class="captcha"><div class="captchaimage"><img src="comp1687/captcha.php" alt="CAPTCHA image"/></div></div>
+				        	<div class="captcha">
+
+                                <div align="center" class="g-recaptcha" data-sitekey="6LfYJH4UAAAAANsDd_E3BaceSduqp_eMvyykXeh-" data-callback="recaptcha_callback"></div>
+                                <!-- <div class="captchaimage"><img src="comp1687/captcha.php" alt="CAPTCHA image"/></div> -->
+                            </div>
 				        	<br>
-				            <input class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Enter captcha">
+<!--				            <input class="uk-input" id="captchaText" name="form-stacked-text" type="text" required='required' placeholder="Enter captcha">-->
 				        </div>
 				    </div>
 
 					<div class="uk-margin uk-alert-danger js-error" style='display: none;'></div>
 
 				    <div class="uk-margin">
-				        <center><button class="uk-button uk-button-default" type="submit"><b>REGISTER</b></button></center>
+                        <label><center>Already have an account? <a href='comp1687/login.php'>Login now!</a></center></label>
+				        <center><button id="registerbtn" class="uk-button uk-button-default" disabled type="submit"><b>REGISTER</b></button></center>
 				    </div>
 			  	
 			  	</form>
 </div>
 
 <?php require_once "inc/footer.php"; ?>
-
 
 </body>
 </html>

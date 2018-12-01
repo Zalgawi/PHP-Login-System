@@ -4,7 +4,7 @@
 	define('__CONFIG__', true);
 
 	// Require the config
-	require_once "../inc/config.php"; 
+	require_once "../inc/config.php";  //possibly have to change the location
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Always return JSON format
@@ -19,12 +19,12 @@
 
 		if($user_found) {
 			// User exists, try and sign them in
-			$id = (int) $user_found['user_id'];
+			$user_id = (int) $user_found['user_id'];
 			$hash = (string) $user_found['password'];
 
 			if(password_verify($password, $hash)) {
 				// User is signed in
-				$return['redirect'] = 'comp1687/dashboard.php';
+				$return['redirect'] = 'comp1687/dashboard.php'; //possibly have to change the location
 
 				$_SESSION['user_id'] = $user_id;
 			} else {
@@ -34,7 +34,7 @@
 
 		} else {
 			// They need to create a new account
-			$return['error'] = "You do not have an account. <a href='comp1687/register.php'>Create one now?</a>";
+			$return['error'] = "You do not have an account. <a href='comp1687/register.php'>Create one now?</a>"; //possibly have to change the location
 		}
 
 		echo json_encode($return, JSON_PRETTY_PRINT); exit;

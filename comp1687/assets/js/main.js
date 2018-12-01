@@ -9,7 +9,8 @@ $(document)
 		email: $("input[type='email']", _form).val(),
 		password: $("input[type='password']", _form).val(),
 		username: $("input[id='username']", _form).val(),
-		skills: $("input[id='skills']", _form).val()
+		skills: $("input[id='skills']", _form).val(),
+		captcha: $("input[id='captchaText']", _form).val()
 	};
 
 	if(dataObj.email.length < 6) {
@@ -30,7 +31,7 @@ $(document)
  
 	$.ajax({
 		type: 'POST',
-		url: 'comp1687/ajax/register.php',
+		url: 'comp1687/ajax/register.php', //possibly have to change the location
 		data: dataObj,
 		dataType: 'json',
 		async: true,
@@ -88,7 +89,7 @@ $(document)
 
 	$.ajax({
 		type: 'POST',
-		url: 'comp1687/ajax/login.php',
+		url: 'comp1687/ajax/login.php', //possibly have to change the location
 		data: dataObj,
 		dataType: 'json',
 		async: true,

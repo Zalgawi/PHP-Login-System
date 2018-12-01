@@ -17,11 +17,11 @@
 	
 
 	// Include the DB.php file;
-	include_once "classes/DB.php";
-	include_once "classes/Filter.php";
-	include_once "classes/Page.php";
-	include_once "classes/User.php";
-	include_once "inc/functions.php";
+	include_once "classes/DB.php"; //possibly have to change the location
+	include_once "classes/Filter.php"; //possibly have to change the location
+	include_once "classes/Page.php"; //possibly have to change the location
+	include_once "classes/User.php"; //possibly have to change the location
+	//include_once "/comp1687/functions.php"; //possibly have to change the location
 
 	$con = DB::getConnection();
 
