@@ -87,7 +87,7 @@ class DB {
 //We don't need to set this as it's the default value
 //$mail->SMTPAuth = false;
 //Set who the message is to be sent from
-     $mail->setFrom('redstonebrotherss@gmail.com');
+     $mail->setFrom('@gmail.com');
 //Set an alternative reply-to address
 
 //Set who the message is to be sent to
