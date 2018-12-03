@@ -22,15 +22,24 @@
 <div class="uk-section uk-container">
     <div class="uk-grid uk-child-width-1-3@s uk-child-width-1-1" uk-grid></div>
 
-    <h2><b><center>JobsWatch</center></b></h2>
+    <center><img src="/comp1687/jobswatch.png" alt="sitelogo"></center>
 
     <form style="border: 3px solid #ddd; border-radius: 10px; padding: 10px;" class="uk-form-stacked js-register">
 
 
         <div class="uk-section uk-container ">
-            <?php echo "Hello world. Today is:";
-            echo date(" Y-m-d"); ?>
+            <div class="homepagetext">
+                <h3><center><b>Welcome to the job finding platform that brings that community together</b></center></h3>
+                <br>
+
+                <?php echo "Hello world. Today is:";
+                echo date(" Y-m-d"); ?>
+            </div>
+
+
             <p>
+                <center><p><a class="uk-button uk-button-default" href="comp1687/login.php">Login Now</a></p></center>
+                <center><p><a class="uk-button uk-button-default" href="comp1687/Register.php"p">Register Now</a></p></center>
                 <a href="comp1687/login.php">Login</a> <!--possibly have to change the location -->
                 <a href="comp1687/Register.php">Register</a> <!--possibly have to change the location -->
             </p>

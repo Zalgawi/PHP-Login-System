@@ -13,6 +13,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <nav class="uk-navbar-container uk-margin"  uk-navbar>
+        <div class="uk-navbar-left">
+
+            <a class="uk-navbar-item uk-logo"  href="comp1687/index.php"><img src="/comp1687/jobswatchsmall.png" alt="sitelogo"></a>
+
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="comp1687/index.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>Home Page</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="comp1687/jobs.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>Jobs</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="comp1687/about.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>About Us</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="comp1687/dashboard.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>Profile Page</b>
+                    </a>
+                </li>
+
+        </div>
+
+        <div class="uk-navbar-item">
+            <form action="javascript:void(0)">
+                <input class="uk-input uk-form-width-small" type="text" placeholder="Input">
+                <button class="uk-button uk-button-default">Button</button>
+            </form>
+        </div>
+
+        </div>
+    </nav>
+
 	<!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/css/uikit.min.css" />
 <link rel="stylesheet" href="style.css">
@@ -77,10 +121,11 @@
 					<div class="uk-margin uk-alert-danger js-error" style='display: none;'></div>
 
 				    <div class="uk-margin">
-                        <label><center>Already have an account? <a href='comp1687/login.php'>Login now!</a></center></label>
-				        <center><button id="registerbtn" class="uk-button uk-button-default" disabled type="submit"><b>REGISTER</b></button></center>
+                        <label><center>Already have an account? <a href='comp1687/login.php'>login now!</a></center></label>
+                        <br>
+				        <center><button id="registerbtn" name="registerbtn" class="uk-button uk-button-default" disabled type="submit"><b>REGISTER</b></button></center>
 				    </div>
-			  	
+
 			  	</form>
 </div>
 

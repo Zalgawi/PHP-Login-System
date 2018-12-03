@@ -24,9 +24,9 @@
 
 			if(password_verify($password, $hash)) {
 				// User is signed in
-				$return['redirect'] = 'comp1687/dashboard.php'; //possibly have to change the location
+                $return['redirect'] = '/comp1687/dashboard.php?message=welcome'; //possibly have to change the location
 
-				$_SESSION['user_id'] = $user_id;
+				$_SESSION['user_id'] = (int) $user_id;
 			} else {
 				// Invalid user email/password combo
 				$return['error'] = "Invalid user email/password combo";
@@ -37,9 +37,9 @@
 			$return['error'] = "You do not have an account. <a href='comp1687/register.php'>Create one now?</a>"; //possibly have to change the location
 		}
 
-		echo json_encode($return, JSON_PRETTY_PRINT); exit;
+        echo json_encode($return, JSON_PRETTY_PRINT);
 	} else {
-		// Die. Kill the script. Redirect the user. Do something regardless.
+		///Kill the script. Redirect the user.
 		exit('Invalid URL');
 	}
 ?>

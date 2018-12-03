@@ -1,7 +1,7 @@
 <?php
 
 	//allow the config
-	define('__CONFIG__', true);
+ 	define('__CONFIG__', true);
 
 	//require the config
  	require_once "../inc/config.php"; //possibly have to change the location
@@ -54,23 +54,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
             $return['is_logged_in'] = true;
-            $return['redirect'] = '/dashboard.php?message=welcome';
-
-
+           // $return=header("Location:localhost://comp1687/dashboard.php?message=welcome");
+            $return['redirect'] = '/comp1687/dashboard.php?message=welcome';
 
         }
 
         // return the proper information back to Javascript to redirect us.
 
-        echo json_encode($return, JSON_PRETTY_PRINT); exit;
+        echo json_encode($return, JSON_PRETTY_PRINT);
     } else {
         //Kill the script. Redirect the user.
         exit('Invalid URL');
-
-
-//    }else{
-//    echo('incorrect captcha');
-}
+        }
 
 
  ?>

@@ -10,7 +10,6 @@ $(document)
 		password: $("input[type='password']", _form).val(),
 		username: $("input[id='username']", _form).val(),
 		skills: $("input[id='skills']", _form).val(),
-		captcha: $("input[id='captchaText']", _form).val()
 	};
 
 	if(dataObj.email.length < 6) {
@@ -31,24 +30,33 @@ $(document)
  
 	$.ajax({
 		type: 'POST',
-		url: 'comp1687/ajax/register.php', //possibly have to change the location
+		url: '/comp1687/ajax/register.php', //possibly have to change the location
 		data: dataObj,
 		dataType: 'json',
 		async: true,
+
+
+
+
+
 	})
-	.done(function ajaxDone(data) {
-		// Whatever data is 
-		if(data.redirect !== undefined) {
-			window.location = data.redirect;
-		} else if(data.error !== undefined) {
-			_error
-				.text(data.error)
-				.show();
-		}
-	})
-	.fail(function ajaxFailed(e) { 
+		.done(function ajaxDone(data) {
+            // Whatever data is
+            if(data.redirect !== undefined) {
+                window.location = data.redirect;
+                console.log('done');
+            } else if(data.error !== undefined) {
+                _error
+                    .html(data.error)
+                    .show();
+                console.log('done');
+            }
+        })
+
+	.fail(function ajaxFailed(e) {
 		//this failed
-		console.log(e);
+        console.log(e);
+
 	})
 	.always(function ajaxAlwaysDoThis(data) {
 		//always do
@@ -64,13 +72,14 @@ $(document)
 	var _form = $(this);
 	var _error = $(".js-error", _form);
 
-	var dataObj = {
-		username: $("input[type='text']", _form).val(),
-		email: $("input[type='email']", _form).val(),
-		skills: $("input[type='text']", _form).val(),
-		password: $("input[type='password']", _form).val()
+        var dataObj = {
+            email: $("input[type='email']", _form).val(),
+            password: $("input[type='password']", _form).val(),
+            username: $("input[id='username']", _form).val(),
+            skills: $("input[id='skills']", _form).val(),
+        };
 
-	};
+
 
 	if(dataObj.email.length < 6) {
 		_error
@@ -94,23 +103,27 @@ $(document)
 		dataType: 'json',
 		async: true,
 	})
-	.done(function ajaxDone(data) {
-		// Whatever data is 
-		if(data.redirect !== undefined) {
-			window.location = data.redirect;
-		} else if(data.error !== undefined) {
-			_error
-				.html(data.error)
-				.show();
-		}
-	})
-	.fail(function ajaxFailed(e) {
-		// This failed 
-	})
-	.always(function ajaxAlwaysDoThis(data) {
-		// Always do
-		console.log('Always');
-	})
+        .done(function ajaxDone(data) {
+            // Whatever data is
+            if(data.redirect !== undefined) {
+                window.location = data.redirect;
+                console.log('data');
+            } else if(data.error !== undefined) {
+                _error
+                    .html(data.error)
+                    .show();
+                console.log('data');
+            }
+        })
+        .fail(function ajaxFailed(e) {
+            //this failed
+            console.log(e);
+
+        })
+        .always(function ajaxAlwaysDoThis(data) {
+            //always do
+            console.log('Always');
+        })
 
 	return false;
 })

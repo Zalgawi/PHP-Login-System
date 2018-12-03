@@ -64,14 +64,14 @@ class DB {
 // 1 = client messages
 // 2 = client and server messages
 
-     $mail->SMTPDebug = 2;
+     $mail->SMTPDebug = 0;
      $mail->isSMTP();
 
 
      $mail->Host = 'smtp.gmail.com';
      $mail->SMTPAuth = true;
-     $mail->Username = 'mail';
-     $mail->Password = 'pass';
+     $mail->Username = '@gmail.com';
+     $mail->Password = '';
      $mail->SMTPOptions = array(
          'ssl' => array(
              'verify_peer' => false,
@@ -87,7 +87,7 @@ class DB {
 //We don't need to set this as it's the default value
 //$mail->SMTPAuth = false;
 //Set who the message is to be sent from
-     $mail->setFrom('email');
+     $mail->setFrom('redstonebrotherss@gmail.com');
 //Set an alternative reply-to address
 
 //Set who the message is to be sent to
@@ -112,13 +112,9 @@ class DB {
                  Thank you for registering with us! :)";
 //Attach an image file
 
-//send the message, check for errors
-     if (!$mail->send()) {
-         echo "Mailer Error: " . $mail->ErrorInfo;
-     } else {
-         echo "Message sent!";
-     }
 
+//send the message, check for errors
+    $mail->send();
 
 
 }
