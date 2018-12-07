@@ -1,53 +1,50 @@
-<?php
-session_start();
+    <?php
+    session_start();
 
-	// Allow the config
-    	define('__CONFIG__', true);
-	// Require the config
-	require_once "inc/config.php";  //possibly have to change the location
-    include_once "inc/classes/DB.php"; //possibly have to change location
+        // Allow the config
+            define('__CONFIG__', true);
+        // Require the config
+        require_once "inc/config.php";  //possibly have to change the location
+        include_once "inc/classes/DB.php"; //possibly have to change location
+        include_once "inc/classes/Page.php";
+        include_once "inc/classes/User.php";
 
-	Page::ForceLogin();
-//
-//$email = filter_input(INPUT_POST['email'] );
-//$username = Filter::String($_POST['username']);
-//$skills = Filter::String($_POST['skills']);
-//$email = filter_input(INPUT_POST['email'] );
-//$username = filter_input(INPUT_POST['username'] );
+        Page::ForceLogin();
 
+        $return=[];
 
-  $User = new User($_SESSION['user_id']);
+    $User = new User($_SESSION['user_id']);
+    $username = $User->username;
 
-$activation = filter_input(INPUT_POST, 'activationtb' );
-//$activation = filter_input(INPUT_POST['activatebtn'] );
-  if(isset($_POST['activatebtn'])) {
+    $activationCode = User::Find(INPUT_GET['activationCode']);
 
-      if(!empty($_POST['activationtb'])) {
+    $con = DB::getConnection();
 
-          $query = "SELECT * FROM users WHERE username='$username'";
-          $result = mysqli_query($con, $query);
-          if(mysqli_num_rows($result) > 0){
+    if (isset($_GET['activationCode']) && !empty($_GET['activationCode'])) {
+        $query = "UPDATE users SET active = 1, credit = 100 WHERE username = :username AND activationCode = :code AND active = 0";
 
-              while($row = mysqli_fetch_array($result)){
+        try {
+            $stmt = $con->prepare($query);
+            $stmt->execute(array(
+                ':username' => $username,
+                ':code' => $_GET['activationCode']
+            ));
 
-                  if($_POST['activationtb'] == $row["activationCode"]){
+        if ($stmt->rowCount() > 0) {
+            $return['error'] = 'Your account is now activated! You have earned 100 Time-banking credits.';
+        } else {
+            $return['error'] = 'Code incorrect or account is already active, please try again';
+        }
+    } catch (PDOException $error) {
+            $return['error'] = (string)$error;
+        }
 
-                      $sql = $conn->query ("UPDATE users SET active=1 AND credit=100 WHERE username = '$username'");
+        echo json_encode($return, JSON_PRETTY_PRINT);
+    }
 
-                      echo 'Your account is now activated! You have earned 100 Time-banking credits.';
-
-                      header("Refresh:0");
-                  }
-                  else{
-                      echo 'Code incorrect, please try again';
-                  }
-              }
-          }
-
-      }
-  }
-
-
+//    if($User->active == 1) {
+//        ("activationProfile").hide();
+//    };
 
 ?>
 
@@ -77,6 +74,19 @@ $activation = filter_input(INPUT_POST, 'activationtb' );
                           <b>Jobs</b>
                       </a>
                   </li>
+          </div>
+
+          <div class="uk-navbar-center">
+              <div class="uk-navbar-item">
+                  <form action="javascript:void(0)">
+                      <input class="uk-input uk-form-width-small" style="width:350px; border-radius: 10px; " type="text" placeholder="Input">
+                      <button class="uk-button uk-button-default" style="border-radius: 10px;">Button</button>
+                  </form>
+              </div>
+          </div>
+
+          <div class="uk-navbar-right">
+              <ul class="uk-navbar-nav">
                   <li>
                       <a href="comp1687/about.php">
                           <span class="uk-icon uk-margin-small-right" ></span>
@@ -89,17 +99,8 @@ $activation = filter_input(INPUT_POST, 'activationtb' );
                           <b>Profile Page</b>
                       </a>
                   </li>
-
           </div>
 
-          <div class="uk-navbar-item">
-              <form action="javascript:void(0)">
-                  <input class="uk-input uk-form-width-small" type="text" placeholder="Input">
-                  <button class="uk-button uk-button-default">Button</button>
-              </form>
-          </div>
-
-          </div>
       </nav>
     
   </head>
@@ -108,26 +109,26 @@ $activation = filter_input(INPUT_POST, 'activationtb' );
 
   	<div class="uk-section uk-container">
         <center><h2><b>Profile Page</b></h2></center>
-        <form style="border: 3px solid #ddd; border-radius: 10px; padding: 10px;" class="uk-form-stacked js-login">
+        <form style="border: 3px solid #ddd; border-radius: 10px; padding: 10px;" class="uk-form-stacked js-dashboard">
 
             <center><div class="userpageinfo">
                     <p><h3>Hello <?php echo $User->username; ?>,</h3>
          <b>Your time-banking credit is: <?php echo $User->credit; ?> credits.</b></p>
             </div></center>
-            <div class="activationprofile">
+            <div <?php if ($User->active == 1) echo " style='display: none';"; ?> class="activationProfile">
             <div>
             <center><p>Please insert the 5 character activation code that was sent to your e-mail address</p></center>
             </div>
 
             <div class="uk-margin">
                 <center><div class="uk-form-controls">
-                        <input class="uk-input" style="width:165px"  name="activationtb" type="text" required='required' placeholder="Insert activation code">
+                        <input class="uk-input" style="width:165px"  name="activationCode" type="text" required='required' placeholder="Insert activation code">
                     </div></center>
             </div>
 
-            <div><center><button id="activatebtn"  name="activatebtn" class="uk-button uk-button-default" type="submit"><b>Activate Account</b></button></center></div>
+                <div><center><button id="activatebtn"   name="activatebtn" class="uk-button uk-button-default" type="submit"><b>Activate Account</b></button></center></div>
 
-<!--            <center><div class="uk-margin uk-alert-danger js-error" style='display: none;'></div></center>-->
+            <center><div class="uk-margin uk-alert-danger js-error" style='display: none;'></div></center>
             </div>
             <p><b><h3>User Skills</h3></b></p>
             <h4>Your skills are <?php echo $User->skills; ?>.</h4>

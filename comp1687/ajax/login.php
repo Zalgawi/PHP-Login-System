@@ -35,7 +35,7 @@
 		} else {
 			// They need to create a new account
 			$return['error'] = "You do not have an account. <a href='comp1687/register.php'>Create one now?</a>"; //possibly have to change the location
-		}
+        }
 
         echo json_encode($return, JSON_PRETTY_PRINT);
 	} else {

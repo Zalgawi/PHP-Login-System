@@ -32,6 +32,19 @@
                         <b>Jobs</b>
                     </a>
                 </li>
+        </div>
+
+        <div class="uk-navbar-center">
+            <div class="uk-navbar-item">
+                <form action="javascript:void(0)">
+                    <input class="uk-input uk-form-width-small" style="width:350px; border-radius: 10px; " type="text" placeholder="Input">
+                    <button class="uk-button uk-button-default" style="border-radius: 10px;">Button</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
                 <li>
                     <a href="comp1687/about.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
@@ -44,17 +57,8 @@
                         <b>Profile Page</b>
                     </a>
                 </li>
-
         </div>
 
-        <div class="uk-navbar-item">
-            <form action="javascript:void(0)">
-                <input class="uk-input uk-form-width-small" type="text" placeholder="Input">
-                <button class="uk-button uk-button-default">Button</button>
-            </form>
-        </div>
-
-        </div>
     </nav>
 
 	<!-- UIkit CSS -->
@@ -78,35 +82,34 @@
 					<div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Username:</b></label>
 				        <div class="uk-form-controls">
-				            <input id="username" class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Insert Username">
+				            <input id="username" style="border-radius: 10px;" class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Insert Username">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Email:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" name="form-stacked-text" type="email" required='required' placeholder="Insert Email">
+				            <input class="uk-input" style="border-radius: 10px;" name="form-stacked-text" type="email" required='required' placeholder="Insert Email">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Skills:</b></label>
 				        <div class="uk-form-controls">
-				            <input id="skills" class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Skills e.g., plumbing, programming, teaching, etc.">
+				            <input id="skills" style="border-radius: 10px;" class="uk-input" name="form-stacked-text" type="text" required='required' placeholder="Skills e.g., plumbing, programming, teaching, etc.">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Password:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" name="form-stacked-text" type="Password" required='required' placeholder="Insert Password">
+				            <input class="uk-input" style="border-radius: 10px;" name="form-stacked-text" type="Password" required='required' placeholder="Insert Password">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Confirm Password:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" name="form-stacked-text" type="Password" required='required' placeholder="Confirm Password">
+				            <input class="uk-input" style="border-radius: 10px;" name="form-stacked-text" type="Password" required='required' placeholder="Confirm Password">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
-<!--				        <label class="uk-form-label" for="form-stacked-text"><b>Enter Captcha:</b></label>-->
 				        <div class="uk-form-controls">
 				        	<div class="captcha">
 
@@ -114,7 +117,6 @@
                                 <!-- <div class="captchaimage"><img src="comp1687/captcha.php" alt="CAPTCHA image"/></div> -->
                             </div>
 				        	<br>
-<!--				            <input class="uk-input" id="captchaText" name="form-stacked-text" type="text" required='required' placeholder="Enter captcha">-->
 				        </div>
 				    </div>
 

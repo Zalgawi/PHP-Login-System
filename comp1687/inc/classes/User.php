@@ -15,13 +15,15 @@ class User {
 	public $email;
 	public $skills;
 	public $credit;
+	public $activationCode;
+	public $active;
 
 	public function __construct(int $user_id) {
 		$this->con = DB::getConnection();
 
 		$user_id = Filter::Int( $user_id );
 
-		$user = $this->con->prepare("SELECT user_id, username, email, skills, credit FROM users WHERE user_id = :user_id LIMIT 1");
+		$user = $this->con->prepare("SELECT user_id, username, email, skills, credit, activationCode, active FROM users WHERE user_id = :user_id LIMIT 1");
 		$user->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 		$user->execute();
 
@@ -33,6 +35,8 @@ class User {
 			$this->email 		= (string) $user->email;
 			$this->skills  = (string) $user->skills;
 			$this->credit = (int) $user->credit;
+			$this->activationCode = (string) $user->activationCode;
+			$this->active = (int) $user->active;
 		} else {
 			// No user.
 			// Redirect to to logout.
@@ -54,16 +58,15 @@ class User {
 
 
 
-	public static function Find($email, $username,  $return_assoc = false) {
+	public static function Find($email, $return_assoc = false) {
 
 		$con = DB::getConnection();
 
 		// Make sure the user does not exist. 
 		$email = (string) Filter::String( $email );
 
-		$findUser = $con->prepare("SELECT user_id, password FROM users WHERE email = (:email) AND username = (:username)  LIMIT 1");
+		$findUser = $con->prepare("SELECT user_id, password FROM users WHERE email = (:email) LIMIT 1");
 		$findUser->bindParam(':email', $email, PDO::PARAM_STR);
-        $findUser->bindParam(':username', $username, PDO::PARAM_STR);
 
         $findUser->execute();
 

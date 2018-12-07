@@ -13,7 +13,52 @@
 
 	<title>Home Page</title>
 	<base href="/"/>
+    <nav class="uk-navbar-container uk-margin"  uk-navbar>
+        <div class="uk-navbar-left">
 
+            <a class="uk-navbar-item uk-logo"  href="comp1687/index.php"><img src="/comp1687/jobswatchsmall.png" alt="sitelogo"></a>
+
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="comp1687/index.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>Home Page</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="comp1687/jobs.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>Jobs</b>
+                    </a>
+                </li>
+        </div>
+
+        <div class="uk-navbar-center">
+            <div class="uk-navbar-item">
+                <form action="javascript:void(0)">
+                    <input class="uk-input uk-form-width-small" style="width:350px; border-radius: 10px; " type="text" placeholder="Input">
+                    <button class="uk-button uk-button-default" style="border-radius: 10px;">Button</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="comp1687/about.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>About Us</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="comp1687/dashboard.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>Profile Page</b>
+                    </a>
+                </li>
+        </div>
+
+    </nav>
 </head>
 <body>
 							
@@ -27,26 +72,20 @@
     <form style="border: 3px solid #ddd; border-radius: 10px; padding: 10px;" class="uk-form-stacked js-register">
 
 
-        <div class="uk-section uk-container ">
+        <div class="uk-section uk-container">
             <div class="homepagetext">
-                <h3><center><b>Welcome to the job finding platform that brings that community together</b></center></h3>
+                <h3><center><b>Welcome to the job finding platform that brings the community together</b></center></h3>
                 <br>
-
-                <?php echo "Hello world. Today is:";
-                echo date(" Y-m-d"); ?>
+                <p><h4>JobsWatch is Greenwich's first community-based, time banking job finder. If you'd like to find out more about what and how we do it,
+                    then click on the <a href="comp1687/about.php">about us</a> page!</h4></p>
             </div>
 
-
             <p>
-                <center><p><a class="uk-button uk-button-default" href="comp1687/login.php">Login Now</a></p></center>
-                <center><p><a class="uk-button uk-button-default" href="comp1687/Register.php"p">Register Now</a></p></center>
-                <a href="comp1687/login.php">Login</a> <!--possibly have to change the location -->
-                <a href="comp1687/Register.php">Register</a> <!--possibly have to change the location -->
+            <center><a style="width:165px; float:left" class="uk-button uk-button-default" href="comp1687/Register.php"p">Register Now</a></center>
+            <center><a style="width:160px; float:right" class="uk-button uk-button-default" href="comp1687/login.php">Login Now</a></center>
             </p>
+
         </div>
-
-
-
     </form>
 </div>
 

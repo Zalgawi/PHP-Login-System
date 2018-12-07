@@ -75,8 +75,7 @@ $(document)
         var dataObj = {
             email: $("input[type='email']", _form).val(),
             password: $("input[type='password']", _form).val(),
-            username: $("input[id='username']", _form).val(),
-            skills: $("input[id='skills']", _form).val(),
+
         };
 
 
@@ -95,7 +94,7 @@ $(document)
 
 	// Assuming the code gets this far, we can start the ajax process
 	_error.hide();
-
+    console.log(dataObj)
 	$.ajax({
 		type: 'POST',
 		url: 'comp1687/ajax/login.php', //possibly have to change the location
@@ -127,3 +126,67 @@ $(document)
 
 	return false;
 })
+
+    // .on("submit", "form.js-dashboard", function(event) {
+    //     event.preventDefault();
+	//
+    //     var _form = $(this);
+    //     var _error = $(".js-error", _form);
+	//
+    //     var dataObj = {
+    //         activationCode: $("input[type='text']", _form).val(),
+	//
+	//
+    //     }
+	//
+    //     $.ajax({
+	// 		type: 'POST',
+	// 		url: 'comp1687/dashboard.php',
+	// 		data: dataObj,
+    //         dataType: 'json',
+    //         async: true,
+    //     })
+    //         .done(function ajaxDone(data) {
+    //             // Whatever data is
+    //             alert(data.error);
+    //         })
+    //         .fail(function ajaxFailed(e) {
+    //             //this failed
+    //             console.log(e);
+	//
+    //         })
+    //     return false;
+	//
+	//
+	//
+    // });
+
+function submitActivationCode(){
+
+
+    var _form = $(this);
+    var _error = $(".js-error", _form);
+
+    var dataObj = {
+        activationCode: $("input[name='activationCode']", _form).val(),
+
+
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: 'comp1687/dashboard.php',
+        data: dataObj,
+        dataType: 'json',
+        async: true,
+    })
+        .done(function ajaxDone(data) {
+            // Whatever data is
+            alert(data.error);
+        })
+        .fail(function ajaxFailed(e) {
+            //this failed
+            console.log(e);
+
+        })
+}

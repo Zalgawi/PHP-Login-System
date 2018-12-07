@@ -29,5 +29,7 @@ border: 1px solid #ddd;
     cursor: not-allowed;
 }
 
-
+textarea {
+    resize: none;
+}
 

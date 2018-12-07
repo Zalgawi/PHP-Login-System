@@ -31,6 +31,19 @@
                         <b>Jobs</b>
                     </a>
                 </li>
+        </div>
+
+        <div class="uk-navbar-center">
+            <div class="uk-navbar-item">
+                <form action="javascript:void(0)">
+                    <input class="uk-input uk-form-width-small" style="width:350px; border-radius: 10px; " type="text" placeholder="Input">
+                    <button class="uk-button uk-button-default" style="border-radius: 10px;">Button</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
                 <li>
                     <a href="comp1687/about.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
@@ -43,17 +56,8 @@
                         <b>Profile Page</b>
                     </a>
                 </li>
-
         </div>
 
-        <div class="uk-navbar-item">
-            <form action="javascript:void(0)">
-                <input class="uk-input uk-form-width-small" type="text" placeholder="Input">
-                <button class="uk-button uk-button-default">Button</button>
-            </form>
-        </div>
-
-        </div>
     </nav>
 
 
@@ -70,13 +74,13 @@
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Email:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" id="form-stacked-text" type="email" required='required' placeholder="Insert Email">
+				            <input class="uk-input" style="border-radius: 10px;" id="form-stacked-text" type="email" required='required' placeholder="Insert Email">
 				        </div>
 				    </div>
 				    <div class="uk-margin">
 				        <label class="uk-form-label" for="form-stacked-text"><b>Password:</b></label>
 				        <div class="uk-form-controls">
-				            <input class="uk-input" id="form-stacked-text" type="Password" required='required' placeholder="Insert Password">
+				            <input class="uk-input" style="border-radius: 10px;" id="form-stacked-text" type="Password" required='required' placeholder="Insert Password">
 				        </div>
 				    </div>
 
