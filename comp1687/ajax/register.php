@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // User does not exist, add them now.
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             // make sure the user CAN be added AND is added.
-            $addUser = $con->prepare("INSERT INTO users(username, email, skills, password, credit, activationCode) VALUES(:username, :email, :skills, :password, :credit, :activationCode)");
+            $addUser = $con->prepare("INSERT INTO users(username, email, skills, password, credit, activationCode) VALUES(:username, LOWER(:email), :skills, :password, :credit, :activationCode)");
             $addUser->bindParam(':username', $username, PDO::PARAM_STR);
             $addUser->bindParam(':credit', $credit, PDO::PARAM_STR);
             $addUser->bindParam(':activationCode', $activationCode, PDO::PARAM_STR);

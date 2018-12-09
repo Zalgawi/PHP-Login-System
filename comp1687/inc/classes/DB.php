@@ -24,7 +24,7 @@ class DB {
 			self::$con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 		} catch (PDOException $e) {
-			echo "Could not connect todatabase."; exit;
+			echo "Could not connect to database."; exit;
 		}
 	}
 

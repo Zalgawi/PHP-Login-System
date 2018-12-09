@@ -5,6 +5,8 @@ $(document)
 	var _form = $(this);
 	var _error = $(".js-error", _form);
 
+
+
 	var dataObj = {
 		email: $("input[type='email']", _form).val(),
 		password: $("input[type='password']", _form).val(),
@@ -127,66 +129,62 @@ $(document)
 	return false;
 })
 
-    // .on("submit", "form.js-dashboard", function(event) {
-    //     event.preventDefault();
-	//
-    //     var _form = $(this);
-    //     var _error = $(".js-error", _form);
-	//
-    //     var dataObj = {
-    //         activationCode: $("input[type='text']", _form).val(),
-	//
-	//
-    //     }
-	//
-    //     $.ajax({
-	// 		type: 'POST',
-	// 		url: 'comp1687/dashboard.php',
-	// 		data: dataObj,
-    //         dataType: 'json',
-    //         async: true,
-    //     })
-    //         .done(function ajaxDone(data) {
-    //             // Whatever data is
-    //             alert(data.error);
-    //         })
-    //         .fail(function ajaxFailed(e) {
-    //             //this failed
-    //             console.log(e);
-	//
-    //         })
-    //     return false;
-	//
-	//
-	//
-    // });
 
-function submitActivationCode(){
+    .on("submit", "form.js-jobs",  function(event) {
+        event.preventDefault();
 
+        var _form = $(this);
+        var _error = $(".js-error", _form);
+        var jobObj = {
+            jobTitle: $("input[id='jobTitle']", _form) .val(),
+            jobSkills: $("input[id='jobSkills']", _form) .val(),
+            jobDescription: $("input[id='jobDescription']", _form).val(),
+            //jobLocation: $("input[id='jobLocation']", _form) .val(),
+            //jobLocation: $("input[id='jobLocation']:selected", _form) .val(),
+            jobLocation: $( "#jobLocation option:selected" ).text(),
+            jobReward: $("input[id='jobReward']", _form) .val(),
+            jobStatus: $("input[id='jobStatus']", _form) .val(),
+            //jobImage: $("input[id='jobImage']", _form) .val(),
+        };
 
-    var _form = $(this);
-    var _error = $(".js-error", _form);
+        if(jobObj.length < 1) {
+            _error
+                .text("Please fill in all fields.")
+                .show();
+            return false;
+        }
 
-    var dataObj = {
-        activationCode: $("input[name='activationCode']", _form).val(),
+        // Assuming the code gets this far, we can start the ajax process
+        _error.hide();
+        console.log(jobObj)
+        $.ajax({
+            type: 'POST',
+            url: 'comp1687/ajax/jobs.php', //possibly have to change the location
+            data: jobObj,
+            dataType: 'json',
+            async: true,
+        })
+            .done(function ajaxDone(data) {
+                // Whatever data is
+                if(data.redirect !== undefined) {
+                   // window.location.reload();
+                    console.log('data');
+                } else if(data.error !== undefined) {
+                    _error
+                        .html(data.error)
+                        .show();
+                    console.log('data');
+                }
+            })
+            .fail(function ajaxFailed(e) {
+                //this failed
+                console.log(e);
 
+            })
+            .always(function ajaxAlwaysDoThis(data) {
+                //always do
+                console.log('Always');
+            })
 
-    };
-
-    $.ajax({
-        type: 'POST',
-        url: 'comp1687/dashboard.php',
-        data: dataObj,
-        dataType: 'json',
-        async: true,
+        return false;
     })
-        .done(function ajaxDone(data) {
-            // Whatever data is
-            alert(data.error);
-        })
-        .fail(function ajaxFailed(e) {
-            //this failed
-            console.log(e);
-
-        })
-}

@@ -17,6 +17,19 @@ class Page {
 		}
 	}
 
+    static function ForceActivation() {
+        $User = new User($_SESSION['user_id']);
+		if ($User->active !== 0){
+            // The user is allowed here
+		} else {
+            // The user is not allowed here.
+            header("Location: /comp1687/dashboard.php"); exit; //possibly have to change the location
+		}
+
+
+        }
+
+
 	static function ForceDashboard() {
 		if(isset($_SESSION['user_id'])) {
 			// The user is allowed here but redirect anyway 

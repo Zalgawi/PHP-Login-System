@@ -27,6 +27,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="comp1687/about.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>About Us</b>
+                    </a>
+                </li>
+                <li>
                     <a href="comp1687/jobs.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
                         <b>Jobs</b>
@@ -45,13 +51,13 @@
 
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
-                <li>
-                    <a href="comp1687/about.php">
+                <li <?php  if(!isset($_SESSION['user_id'])) echo " style='display: none';"; ?>>
+                    <a href="comp1687/search.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
-                        <b>About Us</b>
+                        <b>Search Users</b>
                     </a>
                 </li>
-                <li>
+                <li <?php  if(!isset($_SESSION['user_id'])) echo " style='display: none';"; ?>>
                     <a href="comp1687/dashboard.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
                         <b>Profile Page</b>

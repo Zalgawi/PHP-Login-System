@@ -22,6 +22,9 @@
 
     if (isset($_GET['activationCode']) && !empty($_GET['activationCode'])) {
         $query = "UPDATE users SET active = 1, credit = 100 WHERE username = :username AND activationCode = :code AND active = 0";
+        header("Location:dashboard.php");
+
+
 
         try {
             $stmt = $con->prepare($query);
@@ -32,6 +35,8 @@
 
         if ($stmt->rowCount() > 0) {
             $return['error'] = 'Your account is now activated! You have earned 100 Time-banking credits.';
+
+
         } else {
             $return['error'] = 'Code incorrect or account is already active, please try again';
         }
@@ -42,9 +47,6 @@
         echo json_encode($return, JSON_PRETTY_PRINT);
     }
 
-//    if($User->active == 1) {
-//        ("activationProfile").hide();
-//    };
 
 ?>
 
@@ -69,6 +71,12 @@
                       </a>
                   </li>
                   <li>
+                      <a href="comp1687/about.php">
+                          <span class="uk-icon uk-margin-small-right" ></span>
+                          <b>About Us</b>
+                      </a>
+                  </li>
+                  <li>
                       <a href="comp1687/jobs.php">
                           <span class="uk-icon uk-margin-small-right" ></span>
                           <b>Jobs</b>
@@ -88,9 +96,9 @@
           <div class="uk-navbar-right">
               <ul class="uk-navbar-nav">
                   <li>
-                      <a href="comp1687/about.php">
+                      <a href="comp1687/search.php">
                           <span class="uk-icon uk-margin-small-right" ></span>
-                          <b>About Us</b>
+                          <b>Search Users</b>
                       </a>
                   </li>
                   <li>

@@ -11,7 +11,7 @@ require_once "inc/config.php";  //possibly have to change the location
     <!-- UIKit CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/css/uikit.min.css" />
 
-    <title>Login Page</title>
+    <title>About Us</title>
     <base href="/"/>
     <nav class="uk-navbar-container uk-margin"  uk-navbar>
         <div class="uk-navbar-left">
@@ -23,6 +23,12 @@ require_once "inc/config.php";  //possibly have to change the location
                     <a href="comp1687/index.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
                         <b>Home Page</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="comp1687/about.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>About Us</b>
                     </a>
                 </li>
                 <li>
@@ -44,13 +50,13 @@ require_once "inc/config.php";  //possibly have to change the location
 
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
-                <li>
-                    <a href="comp1687/about.php">
+                <li <?php  if(!isset($_SESSION['user_id'])) echo " style='display: none';"; ?>>
+                    <a href="comp1687/search.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
-                        <b>About Us</b>
+                        <b>Search Users</b>
                     </a>
                 </li>
-                <li>
+                <li <?php  if(!isset($_SESSION['user_id'])) echo " style='display: none';"; ?>>
                     <a href="comp1687/dashboard.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
                         <b>Profile Page</b>

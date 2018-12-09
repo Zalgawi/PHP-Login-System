@@ -26,6 +26,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="comp1687/about.php">
+                        <span class="uk-icon uk-margin-small-right" ></span>
+                        <b>About Us</b>
+                    </a>
+                </li>
+                <li>
                     <a href="comp1687/jobs.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
                         <b>Jobs</b>
@@ -44,13 +50,14 @@
 
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
-                <li>
-                    <a href="comp1687/about.php">
+
+                <li <?php  if(!isset($_SESSION['user_id'])) echo " style='display: none';"; ?>>
+                    <a href="comp1687/search.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
-                        <b>About Us</b>
+                        <b>Search Users</b>
                     </a>
                 </li>
-                <li>
+                <li <?php  if(!isset($_SESSION['user_id'])) echo " style='display: none';"; ?>>
                     <a href="comp1687/dashboard.php">
                         <span class="uk-icon uk-margin-small-right" ></span>
                         <b>Profile Page</b>
@@ -74,7 +81,7 @@
 
         <div class="uk-section uk-container">
             <div class="homepagetext">
-                <h3><center><b>Welcome to the job finding platform that brings the community together</b></center></h3>
+                <h3><center><b>Welcome to the Royal Borough of Greenwich's job finding platform that brings the community together</b></center></h3>
                 <br>
                 <p><h4>JobsWatch is Greenwich's first community-based, time banking job finder. If you'd like to find out more about what and how we do it,
                     then click on the <a href="comp1687/about.php">about us</a> page!</h4></p>
