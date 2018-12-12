@@ -6,9 +6,10 @@
 }
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require 'C:\wamp64\www\comp1687\PHPMailer\Exception.php';
-require 'C:\wamp64\www\comp1687\PHPMailer\PHPMailer.php';
-require  'C:\wamp64\www\comp1687\PHPMailer\SMTP.php';
+
+require ('/home/za1180x/public_html/comp1687/PHPMailer/Exception.php');
+require ('/home/za1180x/public_html/comp1687/PHPMailer/PHPMailer.php');
+require ('/home/za1180x/public_html/comp1687/PHPMailer/SMTP.php');
 
 class DB {
 
@@ -17,7 +18,7 @@ class DB {
 	private function __construct(){
 		try {
 
-			self::$con = new PDO( 'mysql:charset=latin1;host=localhost;port=3306;dbname=mdb_za1180x', 'root', ''); //change connection string
+			self::$con = new PDO( 'mysql:charset=latin1;host=mysql.cms.gre.ac.uk;port=3306;dbname=mdb_za1180x', 'za1180x', 'Zkaaka1598753'); //change connection string
 			self::$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 			self::$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 			self::$con->setAttribute( PDO::ATTR_PERSISTENT, false );
@@ -55,53 +56,16 @@ class DB {
 //This will email the user their activation code which should be applied in activate.php
      //This is importing a mailing code that is downloaded from a public library.
 
-    include_once "C:\wamp64\www\comp1687\PHPMailer\PHPMailer.php";
-     //Create a new PHPMailer instance
-     $mail = new PHPMailer;
-//Tell PHPMailer to use SMTP
-//Enable SMTP debugging
-// 0 = off (for production use)
-// 1 = client messages
-// 2 = client and server messages
+    include_once ('/home/za1180x/public_html/comp1687/PHPMailer/PHPMailer.php');
+    
+    $mail = new PHPMailer(true);
 
-     $mail->SMTPDebug = 0;
-     $mail->isSMTP();
-
-
-     $mail->Host = 'smtp.gmail.com';
-     $mail->SMTPAuth = true;
-     $mail->Username = 'mail';
-     $mail->Password = 'pass';
-     $mail->SMTPOptions = array(
-         'ssl' => array(
-             'verify_peer' => false,
-             'verify_peer_name' => false,
-             'allow_self_signed' => true
-         )
-     );
-// SMTP username
-//Set the hostname of the mail server
-     $mail->SMTPSecure = 'tls';
-//Set the SMTP port number - likely to be 25, 465 or 587
-     $mail->Port = 587;
-//We don't need to set this as it's the default value
-//$mail->SMTPAuth = false;
-//Set who the message is to be sent from
-     $mail->setFrom('mail');
-//Set an alternative reply-to address
-
-//Set who the message is to be sent to
-     $mail->addAddress($email);
-
-//Ensure HTML is enabled
-     $mail->isHTML(true);
-//Set the subject line
-     $mail->Subject = 'Activation code';
-//Read an HTML message body from an external file, convert referenced images to embedded,
-//convert HTML into a basic plain-text alternative body
-
-//Replace the plain text body with one created manually
-     $mail->Body = "  Hello $username,
+    //mail recipients
+        $mail->setFrom ('za1180x@greenwich.ac.uk');
+        $mail->addAddress($email, $name);
+        $mail->Subject = "Please verify your email!";
+        $mail->isHTML(true);
+        $mail->Body = "  Hello $username,
                  <br>
                  Your activation code is:
                  <br>
@@ -110,11 +74,68 @@ class DB {
                  Please insert the 5 character activation code to become a full member.
                  <br>
                  Thank you for registering with us! :)";
-//Attach an image file
-
-
-//send the message, check for errors
-    $mail->send();
+            
+                     
+         $mail->send();  
+     //Create a new PHPMailer instance
+//     $mail = new PHPMailer;
+////Tell PHPMailer to use SMTP
+////Enable SMTP debugging
+//// 0 = off (for production use)
+//// 1 = client messages
+//// 2 = client and server messages
+//
+//     $mail->SMTPDebug = 0;
+//     $mail->isSMTP();
+//
+//
+//     $mail->Host = 'smtp.gmail.com';
+//     $mail->SMTPAuth = true;
+//     $mail->Username = 'redstonebrotherss@gmail.com';
+//     $mail->Password = 'password';
+//     $mail->SMTPOptions = array(
+//         'ssl' => array(
+//             'verify_peer' => false,
+//             'verify_peer_name' => false,
+//             'allow_self_signed' => true
+//         )
+//     );
+//// SMTP username
+////Set the hostname of the mail server
+//     $mail->SMTPSecure = 'tls';
+////Set the SMTP port number - likely to be 25, 465 or 587
+//     $mail->Port = 587;
+////We don't need to set this as it's the default value
+////$mail->SMTPAuth = false;
+////Set who the message is to be sent from
+//     $mail->setFrom('redstonebrotherss@gmail.com');
+////Set an alternative reply-to address
+//
+////Set who the message is to be sent to
+//     $mail->addAddress($email);
+//
+////Ensure HTML is enabled
+//     $mail->isHTML(true);
+////Set the subject line
+//     $mail->Subject = 'Activation code';
+////Read an HTML message body from an external file, convert referenced images to embedded,
+////convert HTML into a basic plain-text alternative body
+//
+////Replace the plain text body with one created manually
+//     $mail->Body = "  Hello $username,
+//                 <br>
+//                 Your activation code is:
+//                 <br>
+//                 <b>'$activationCode'</b>
+//                 <br>
+//                 Please insert the 5 character activation code to become a full member.
+//                 <br>
+//                 Thank you for registering with us! :)";
+////Attach an image file
+//
+//
+////send the message, check for errors
+//    $mail->send();
 
 
 }

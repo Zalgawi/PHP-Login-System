@@ -1,3 +1,5 @@
+ 
+
 $(document)
 .on("submit", "form.js-register", function(event) {
 	event.preventDefault();
@@ -32,14 +34,18 @@ $(document)
  
 	$.ajax({
 		type: 'POST',
-		url: '/comp1687/ajax/register.php', //possibly have to change the location
+		url: 'https://stuweb.cms.gre.ac.uk/~za1180x/comp1687/ajax/register.php', //possibly have to change the location
 		data: dataObj,
 		dataType: 'json',
 		async: true,
-
-
-
-
+                /*success: function(data){
+                    alert("success: " + data);
+                },
+                error: function(data){
+                    alert("error: "  + data.responseText);
+                    console.log(data.responseText);
+                    
+                }*/
 
 	})
 		.done(function ajaxDone(data) {
@@ -59,10 +65,6 @@ $(document)
 		//this failed
         console.log(e);
 
-	})
-	.always(function ajaxAlwaysDoThis(data) {
-		//always do
-		console.log('Always');
 	})
 
 	return false;
@@ -99,7 +101,7 @@ $(document)
     console.log(dataObj)
 	$.ajax({
 		type: 'POST',
-		url: 'comp1687/ajax/login.php', //possibly have to change the location
+		url: 'https://stuweb.cms.gre.ac.uk/~za1180x/comp1687/ajax/login.php', //possibly have to change the location
 		data: dataObj,
 		dataType: 'json',
 		async: true,
@@ -121,11 +123,6 @@ $(document)
             console.log(e);
 
         })
-        .always(function ajaxAlwaysDoThis(data) {
-            //always do
-            console.log('Always');
-        })
-
 	return false;
 })
 
@@ -139,12 +136,11 @@ $(document)
             jobTitle: $("input[id='jobTitle']", _form) .val(),
             jobSkills: $("input[id='jobSkills']", _form) .val(),
             jobDescription: $("input[id='jobDescription']", _form).val(),
-            //jobLocation: $("input[id='jobLocation']", _form) .val(),
-            //jobLocation: $("input[id='jobLocation']:selected", _form) .val(),
+            jobImage: $("input[id='jobImage']", _form) .val(),
             jobLocation: $( "#jobLocation option:selected" ).text(),
             jobReward: $("input[id='jobReward']", _form) .val(),
             jobStatus: $("input[id='jobStatus']", _form) .val(),
-            //jobImage: $("input[id='jobImage']", _form) .val(),
+            
         };
 
         if(jobObj.length < 1) {
@@ -159,32 +155,27 @@ $(document)
         console.log(jobObj)
         $.ajax({
             type: 'POST',
-            url: 'comp1687/ajax/jobs.php', //possibly have to change the location
+            url: 'https://stuweb.cms.gre.ac.uk/~za1180x/comp1687/ajax/jobs.php', //possibly have to change the location
             data: jobObj,
             dataType: 'json',
             async: true,
         })
             .done(function ajaxDone(data) {
                 // Whatever data is
-                if(data.redirect !== undefined) {
-                   // window.location.reload();
+             if(data.redirect !== undefined) {
                     console.log('data');
                 } else if(data.error !== undefined) {
-                    _error
-                        .html(data.error)
-                        .show();
-                    console.log('data');
-                }
+                _error
+                    .html(data.error)
+                    .show();
+                console.log('data');
+            }
+                                           
             })
             .fail(function ajaxFailed(e) {
                 //this failed
-                console.log(e);
+                alert("error: " + e.responseText);
 
             })
-            .always(function ajaxAlwaysDoThis(data) {
-                //always do
-                console.log('Always');
-            })
-
         return false;
     })

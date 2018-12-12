@@ -24,7 +24,7 @@
 
 			if(password_verify($password, $hash)) {
 				// User is signed in
-                $return['redirect'] = '/comp1687/dashboard.php?message=welcome'; //possibly have to change the location
+                $return['redirect'] = '/~za1180x/comp1687/dashboard.php?message=welcome'; //possibly have to change the location
 
 				$_SESSION['user_id'] = (int) $user_id;
 			} else {
@@ -34,7 +34,7 @@
 
 		} else {
 			// They need to create a new account
-			$return['error'] = "You do not have an account. <a href='comp1687/register.php'>Create one now?</a>"; //possibly have to change the location
+			$return['error'] = "You do not have an account. <a href='/~za1180x/comp1687/register.php'>Create one now?</a>"; //possibly have to change the location
         }
 
         echo json_encode($return, JSON_PRETTY_PRINT);

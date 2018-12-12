@@ -40,7 +40,7 @@ class User {
 		} else {
 			// No user.
 			// Redirect to to logout.
-			header("Location: /comp1687/logout.php"); exit; //possibly have to change the location
+			header("Location: /~za1180x/comp1687/logout.php"); exit; //possibly have to change the location
 		}
 	}
 
