@@ -18,7 +18,7 @@ class DB {
 	private function __construct(){
 		try {
 
-			self::$con = new PDO( 'mysql:charset=latin1;host=mysql.cms.gre.ac.uk;port=3306;dbname=mdb_za1180x', 'za1180x', 'Zkaaka1598753'); //change connection string
+			self::$con = new PDO( 'mysql:charset=latin1;host=mysql.cms.gre.ac.uk;port=3306;dbname=mdb_za1180x'); //change connection string
 			self::$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 			self::$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 			self::$con->setAttribute( PDO::ATTR_PERSISTENT, false );
